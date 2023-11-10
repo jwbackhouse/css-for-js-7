@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-const SecondaryStory = ({ id, title, image, location, abstract }) => {
+const SecondaryStory = ({ id, title, image, location, abstract, isLast }) => {
   return (
     <a href={`/story/${id}`}>
-      <Wrapper>
+      <Wrapper isLast={isLast}>
         <Image alt={image.alt} src={image.src} />
         <Heading>{title}</Heading>
         <Abstract>{abstract}</Abstract>
@@ -21,6 +21,9 @@ const Wrapper = styled.article`
   gap: 4px 16px;
   grid-template-columns: 120px 1fr;
   color: var(--color-gray-900);
+
+  border-bottom: ${(p) => (p.isLast ? 'none' : '1px solid var(--color-gray-300)')};
+  padding-block: 16px;
 `;
 
 const Image = styled.img`
