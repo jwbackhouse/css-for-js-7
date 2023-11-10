@@ -4,10 +4,10 @@ import styled from 'styled-components/macro';
 import { QUERIES } from '../../constants';
 
 
-const OpinionStory = ({ id, title, author, avatar, isLast }) => {
+const OpinionStory = ({ id, title, author, avatar }) => {
   return (
     <a href={`/story/${id}`}>
-      <Wrapper isLast={isLast}>
+      <Wrapper>
         <Avatar alt="" src={avatar} />
         <div>
           <AuthorName>{author}</AuthorName>
@@ -23,9 +23,6 @@ const Wrapper = styled.article`
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-
-  border-bottom: ${(p) => (p.isLast ? 'none' : '1px solid var(--color-gray-300)')};
-  padding-block: 16px;
 
   @media ${QUERIES.tabletOnly} {
     display: revert;
