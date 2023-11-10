@@ -120,7 +120,7 @@ const MainHeader = styled(MaxWidthWrapper)`
 
   @media ${QUERIES.laptopAndUp} {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     margin-top: 16px;
   }
