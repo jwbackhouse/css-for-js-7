@@ -53,7 +53,7 @@ const SuperHeader = styled.div`
   background: var(--color-gray-900);
   color: white;
 
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     display: none;
   }
 `;
@@ -79,7 +79,7 @@ const ActionGroup = styled.div`
 const DesktopActionGroup = styled(ActionGroup)`
   display: none;
 
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     display: flex;
   }
 `;
@@ -87,12 +87,23 @@ const DesktopActionGroup = styled(ActionGroup)`
 const DesktopButtonGroup = styled.div`
   display: none;
 
-  @media ${QUERIES.desktopAndUp} {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+  @media ${QUERIES.laptopAndUp} {
+    display: revert;
+    position: relative;
+    justify-self: end;
   }
+`;
+  
+const Link = styled.a`
+  color: var(--color-gray-900);
+  font-family: ${FAMILIES.serif};
+  font-style: italic;
+  font-size: 0.875rem;
+  text-decoration: underline;
+  position: absolute;
+  margin-top: 8px;
+  width: 100%;
+  text-align: center;
 `;
 
 const MainHeader = styled(MaxWidthWrapper)`
@@ -102,16 +113,18 @@ const MainHeader = styled(MaxWidthWrapper)`
   margin-top: 32px;
   margin-bottom: 48px;
 
-  @media ${QUERIES.desktopAndUp} {
-    justify-content: space-between;
+  @media ${QUERIES.tabletAndUp} {
+    margin-top: 48px;
+    margin-bottom: 72px;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    margin-top: 16px;
   }
 `;
 
-const Link = styled.a`
-  color: var(--color-gray-900);
-  font-family: ${FAMILIES.serif};
-  font-style: italic;
-  font-size: 0.875rem;
-`;
 
 export default Header;

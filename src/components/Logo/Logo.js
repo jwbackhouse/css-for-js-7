@@ -18,15 +18,15 @@ const Logo = (props) => {
 
 const Wrapper = styled.div`
   text-align: center;
-
-  @media ${QUERIES.desktopAndUp} {
-    margin-top: -16px;
-  }
 `;
 
 const Link = styled.a`
   font-family: var(--font-family-logo);
   font-size: 3rem;
+
+  @media ${QUERIES.tabletAndUp} {
+    font-size: 4rem;
+  }
 `;
 
 const TodaysDate = styled.p`
