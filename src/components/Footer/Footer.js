@@ -152,7 +152,6 @@ const TopRow = styled.div`
   }
   
   @media ${QUERIES.laptopAndUp} {
-    flex-direction: row;
     justify-content: flex-end;
   }
 `;
@@ -184,15 +183,7 @@ const MainNavArea = styled.div`
 
   @media ${QUERIES.tabletAndUp} {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: start;
-    text-align: start;
-  }
-
-  @media ${QUERIES.laptopAndUp} {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     text-align: start;
   }
 `;
