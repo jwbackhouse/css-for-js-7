@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-const OpinionStory = ({ id, title, author, avatar }) => {
+import { QUERIES } from '../../constants';
+
+
+const OpinionStory = ({ id, title, author, avatar, isLast }) => {
   return (
     <a href={`/story/${id}`}>
-      <Wrapper>
+      <Wrapper isLast={isLast}>
         <Avatar alt="" src={avatar} />
         <div>
           <AuthorName>{author}</AuthorName>
@@ -17,6 +20,16 @@ const OpinionStory = ({ id, title, author, avatar }) => {
 
 const Wrapper = styled.article`
   color: var(--color-gray-900);
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+
+  border-bottom: ${(p) => (p.isLast ? 'none' : '1px solid var(--color-gray-300)')};
+  padding-block: 16px;
+
+  @media ${QUERIES.tabletOnly} {
+    display: revert;
+  }
 `;
 
 const Avatar = styled.img`
@@ -38,6 +51,7 @@ const ArticleTitle = styled.h3`
   font-size: 1.125rem;
   font-weight: var(--font-weight-bold);
   line-height: 1.3;
+  padding-right: 0.5rem;
 `;
 
 export default OpinionStory;
